@@ -1,6 +1,6 @@
         $.ajax({
             //your server url
-            url: "http://google.com",
+            url: "minecraft.einfachtobi.com",
             type: "post",
             data: "onlinecheck",
             success: function(){
