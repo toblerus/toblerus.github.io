@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/home.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900" type="text/css">
 	<script src="https://cdn.rawgit.com/leonardosnt/mc-player-counter/1.1.0/dist/mc-player-counter.min.js"></script>
+
 </head>
 <body>
 	<div class="container">
@@ -24,17 +25,43 @@
 
 				<p>Join <span data-playercounter-ip="minecraft.einfachtobi.com">
 				0</span> other players on <span>minecraft.einfachtobi.com</span></p> 
+				<script src="https://mcapi.us/scripts/minecraft.js"></script>
+				<div class="server-status">
+				The minecraft server is currently <span class="server-online"></span>!
+				</div>
+				<script>
+				MinecraftAPI.getServerStatus('minecraft.einfachtobi.com', {
+					port: 25565 // optional, only if you need a custom port
+				}, function (err, status) {
+					if (err) {
+					return document.querySelector('.server-status').innerHTML = 'Error loading status';
+					}
+
+					// you can change these to your own message!
+					document.querySelector('.server-online').innerHTML = status.online ? 'up' : 'down';
+				});
+				</script>
 				<br>
 				<p>Join <span data-playercounter-ip="ttt.einfachtobi.com">
-				0</span> other players on <span>ttt.einfachtobi.com</span></p> 
+				0</span> other players on <span>ttt.einfachtobi.com</span></p>		
+				<div class="server-status">
+				The TTT Server is offline!
+				</div>
 				<br>
 				<p>Join <span data-playercounter-ip="gmod.einfachtobi.com">
 				0</span> other players on <span>gmod.einfachtobi.com</span></p> 
+				<div class="server-status">
+				The GMOD Server is offline!
+				</div>
 			</div>
 		</header>
 	</div>
-
+	
+	
+	
 	<script src="https://code.jquery.com/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<script src="js/main.js" type="text/javascript"></script>
+	
+	
 
 </body></html>
