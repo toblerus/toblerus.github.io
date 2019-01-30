@@ -9,8 +9,22 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900" type="text/css">
 	<script src="https://cdn.rawgit.com/leonardosnt/mc-player-counter/1.1.0/dist/mc-player-counter.min.js"></script>
 	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	
+	
+	
 </head>
 <body>
+
+<style>
+	#statusimage {
+	border-width:1px;
+	
+border-style:solid;
+border-radius: 7px;
+border-color:gray;
+	}
+	</style>
+
 	<div class="container">
 		<header>
 		
@@ -28,26 +42,9 @@
 				
 			</div>
 			<h1 class="animate" style="display: block;">Willkommen!</h1>
-			<div class="playercount">
-
-				<p>Join <span data-playercounter-ip="minecraft.einfachtobi.com">
-				0</span> other players on <span>minecraft.einfachtobi.com</span></p> 
-				<script src="https://mcapi.us/scripts/minecraft.js"></script>
-				<div class="server-status">
-				The minecraft server is currently <span class="server-online"></span>!
+			<div id=statusdisplay>
+				<img src="https://mcapi.us/server/image?ip=minecraft.einfachtobi.com&theme=dark" id=statusimage>
 				</div>
-				<script>
-				MinecraftAPI.getServerStatus('minecraft.einfachtobi.com', {
-					port: 25565 // optional, only if you need a custom port
-				}, function (err, status) {
-					if (err) {
-					return document.querySelector('.server-status').innerHTML = 'Error loading status';
-					}
-
-					// you can change these to your own message!
-					document.querySelector('.server-online').innerHTML = status.online ? 'up' : 'down';
-				});
-				</script>
 				</div>
 			</div>
 		</header>
