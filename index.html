@@ -2,8 +2,7 @@
 <html>
 <head>
 <!-- HTML Codes by Quackit.com -->
-<title>
-Einfach Tobi's page</title>
+<title>Einfach Tobi's page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="There may be something here at some point. ">
 <style>
@@ -19,7 +18,40 @@ p {font-family:Georgia, serif;font-size:14px;font-style:normal;font-weight:norma
 </style>
 </head>
 <body>
-<p class="centered">There is nothing here (yet).</p>
-<p></p>
+
+<p class="centered" id="message">There is nothing here (yet).</p>
+
+<script>
+// List of messages to cycle through
+var messages = [
+  "There is nothing here (yet).",
+  "Something interesting might appear here.",
+  "Stay tuned for updates.",
+  "Who knows what the future holds?",
+  "Refresh again to see more."
+];
+
+// Function to get the next message index
+function getNextMessageIndex() {
+  var index = parseInt(localStorage.getItem("currentIndex"));
+  if (isNaN(index)) {
+    index = 0;
+  } else {
+    index = (index + 1) % messages.length;
+  }
+  localStorage.setItem("currentIndex", index);
+  return index;
+}
+
+// Function to display the message
+function displayMessage() {
+  var index = getNextMessageIndex();
+  document.getElementById("message").textContent = messages[index];
+}
+
+// Display a message when the page loads
+window.onload = displayMessage;
+</script>
+
 </body>
 </html>
