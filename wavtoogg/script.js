@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropArea = document.getElementById('drop-area');
     const loading = document.getElementById('loading');
     const downloadLink = document.getElementById('download-link');
+    const progressBar = document.getElementById('progress');
 
     dropArea.addEventListener('dragover', (event) => {
         event.preventDefault();
@@ -32,14 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
             showLoading();
             await ffmpeg.load();
             ffmpeg.FS('writeFile', 'input.wav', await fetchFile(file));
+
+            ffmpeg.setProgress(({ ratio }) => {
+                progressBar.value = ratio * 100;
+            });
+
             await ffmpeg.run('-i', 'input.wav', 'output.ogg');
 
             const data = ffmpeg.FS('readFile', 'output.ogg');
             const oggBlob = new Blob([data.buffer], { type: 'audio/ogg' });
             const url = URL.createObjectURL(oggBlob);
 
+            const originalFilename = file.name.split('.').slice(0, -1).join('.');
             downloadLink.href = url;
-            downloadLink.download = 'output.ogg';
+            downloadLink.download = `${originalFilename}_ogg.ogg`;
             downloadLink.style.display = 'block';
 
             showSuccess('Conversion successful!');
@@ -49,9 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function showLoading() {
-        dropArea.style.display = 'none';
+        dropArea.innerHTML = '<p>Converting...</p>';
+        dropArea.className = '';
         loading.style.display = 'flex';
-        dropArea.classList.remove('error', 'success');
+        dropArea.style.display = 'none';
+        downloadLink.style.display = 'none';
+        progressBar.value = 0;
     }
 
     function showSuccess(message) {
