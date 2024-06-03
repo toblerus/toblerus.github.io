@@ -37,7 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ffmpeg.setProgress(({ ratio }) => {
                 progressBar.value = ratio;
                 if (ratio === 1) {
-                    showSuccess('Conversion successful!');
+                    setTimeout(() => {
+                        showSuccess('Conversion successful!');
+                    }, 500);
                 }
             });
 
@@ -50,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalFilename = file.name.split('.').slice(0, -1).join('.');
             downloadLink.href = url;
             downloadLink.download = `${originalFilename}_ogg.ogg`;
-            downloadLink.style.display = 'none'; 
+            downloadLink.style.display = 'none';
         } catch (error) {
             showError('Error during conversion: ' + error.message);
         }
@@ -61,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.className = '';
         loading.style.display = 'flex';
         dropArea.style.display = 'none';
-        progressBar.value = 0; 
+        progressBar.value = 0;
     }
 
     function showSuccess(message) {
