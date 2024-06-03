@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAV to OGG Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <h1>WAV to OGG Converter</h1>
+        <div id="drop-area">
+            <p>Drag & drop a WAV file here</p>
+        </div>
+        <div id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Converting...</p>
+        </div>
+        <a id="download-link" style="display: none;">Download OGG</a>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ffmpeg/ffmpeg@0.10.1/dist/ffmpeg.min.js"></script>
+</body>
+</html>
