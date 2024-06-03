@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const loading = document.getElementById('loading');
     const downloadLink = document.getElementById('download-link');
     const progressBar = document.getElementById('progress');
-    let isFFmpegLoaded = false;
 
     dropArea.addEventListener('dragover', (event) => {
         event.preventDefault();
@@ -23,21 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const file = event.dataTransfer.files[0];
         if (file && file.type === 'audio/wav') {
-            if (!isFFmpegLoaded) {
-                await loadFFmpeg();
-                isFFmpegLoaded = true;
+            if (!ffmpeg.loaded) {
+                await ffmpeg.load();
             }
             await convertToOgg(file);
         } else {
             showError('Please drop a valid WAV file.');
         }
     });
-
-    async function loadFFmpeg() {
-        if (!ffmpeg.isLoaded()) {
-            await ffmpeg.load();
-        }
-    }
 
     async function convertToOgg(file) {
         try {
