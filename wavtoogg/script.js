@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ffmpeg.FS('writeFile', 'input.wav', await fetchFile(file));
 
             ffmpeg.setProgress(({ ratio }) => {
-                progressBar.value = ratio * 100;
+                progressBar.value = ratio;
             });
 
             await ffmpeg.run('-i', 'input.wav', 'output.ogg');
