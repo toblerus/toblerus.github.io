@@ -35,7 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
             ffmpeg.FS('writeFile', 'input.wav', await fetchFile(file));
 
             ffmpeg.setProgress(({ ratio }) => {
-                progressBar.value = ratio;
+                const targetProgress = Math.min(ratio, 0.99); 
+                const currentProgress = progressBar.value;
+                progressBar.value = lerp(currentProgress, targetProgress, 0.1);
             });
 
             await ffmpeg.run('-i', 'input.wav', 'output.ogg');
@@ -49,7 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
             downloadLink.download = `${originalFilename}_ogg.ogg`;
             downloadLink.style.display = 'block';
 
-            showSuccess('Conversion successful!');
+            setTimeout(() => {
+                showSuccess('Conversion successful!');
+            }, 500);
         } catch (error) {
             showError('Error during conversion: ' + error.message);
         }
@@ -76,5 +80,9 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.style.display = 'flex';
         dropArea.className = 'error';
         dropArea.innerHTML = `<p>${message}</p>`;
+    }
+
+    function lerp(a, b, t) {
+        return a + (b - a) * t;
     }
 });
