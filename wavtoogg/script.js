@@ -35,9 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
             ffmpeg.FS('writeFile', 'input.wav', await fetchFile(file));
 
             ffmpeg.setProgress(({ ratio }) => {
-                const targetProgress = Math.min(ratio, 0.99); 
-                const currentProgress = progressBar.value;
-                progressBar.value = lerp(currentProgress, targetProgress, 0.1);
+                progressBar.value = ratio;
+                if (ratio === 1) {
+                    setTimeout(() => {
+                        showSuccess('Conversion successful!');
+                    }, 500);
+                }
             });
 
             await ffmpeg.run('-i', 'input.wav', 'output.ogg');
@@ -49,11 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalFilename = file.name.split('.').slice(0, -1).join('.');
             downloadLink.href = url;
             downloadLink.download = `${originalFilename}_ogg.ogg`;
-            downloadLink.style.display = 'block';
-
-            setTimeout(() => {
-                showSuccess('Conversion successful!');
-            }, 500);
+            downloadLink.style.display = 'none';
         } catch (error) {
             showError('Error during conversion: ' + error.message);
         }
@@ -64,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.className = '';
         loading.style.display = 'flex';
         dropArea.style.display = 'none';
-        downloadLink.style.display = 'none';
         progressBar.value = 0;
     }
 
@@ -73,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.style.display = 'flex';
         dropArea.className = 'success';
         dropArea.innerHTML = `<p>${message}</p>`;
+        downloadLink.style.display = 'block'; 
     }
 
     function showError(message) {
@@ -80,9 +79,5 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.style.display = 'flex';
         dropArea.className = 'error';
         dropArea.innerHTML = `<p>${message}</p>`;
-    }
-
-    function lerp(a, b, t) {
-        return a + (b - a) * t;
     }
 });
