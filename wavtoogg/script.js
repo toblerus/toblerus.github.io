@@ -37,7 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
             ffmpeg.setProgress(({ ratio }) => {
                 progressBar.value = ratio;
                 if (ratio === 1) {
-                    showSuccess('Conversion successful!');
+                    setTimeout(() => {
+                        progressBar.value = 1;
+                        showSuccess('Conversion successful!');
+                    }, 500);
                 }
             });
 
@@ -61,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dropArea.className = '';
         loading.style.display = 'flex';
         dropArea.style.display = 'none';
-        progressBar.value = 0; 
+        progressBar.value = 0;
     }
 
     function showSuccess(message) {
