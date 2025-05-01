@@ -1,53 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Einfach Tobi's page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="There may be something here at some point. ">
-<style>
-body {background-color:#ffffff;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
-h1{font-family:Arial, sans-serif;color:#000000;background-color:#ffffff;}
-p {font-family:Georgia, serif;font-size:14px;font-style:normal;font-weight:normal;color:#000000;background-color:#ffffff;}
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="theme-init.js"></script>
 </head>
-<body>
+<body class="preload" onload="applyStoredTheme()">
+  <div class="container">
+    <div class="theme-toggle">
+      <button onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+    </div>
+    <h1>Tobias Hainke</h1>
+    <p class="description">Unity developer experienced in building games from concept to release, with a strong focus on teamwork, iteration, and delivering polished player experiences.</p>
 
-<p class="centered" id="message"></p>
+    <div class="grid">
+      <div class="tile" onclick="openOverlay(0)">
+        <img src="game1_thumb.bmp" alt="Game 1">
+        <div class="tile-title">Game Title 1</div>
+      </div>
+      <div class="tile" onclick="openOverlay(1)">
+        <img src="Assets/ClumsyMechanic/thumb.png" alt="Clumsy Mechanic">
+        <div class="tile-title">Clumsy Mechanic</div>
+      </div>
+    </div>
 
-<script>
-var messages = [
-  "There is nothing here (yet).",
-  "Something interesting might appear here.",
-  "Stay tuned for updates.",
-  "Who knows what the future holds?",
-  "Refresh again to see more.",
-  "Hey James!"
-];
+    <footer>
+      <p>Contact me at: <a href="mailto:toblerus@hotmail.de">toblerus-at-hotmail.de</a></p>
+      <div class="socials">
+        <a href="#"><i class="fab fa-twitter"></i>Twitter</a>
+        <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+        <a href="#"><i class="fab fa-github"></i>GitHub</a>
+        <a href="#"><i class="fab fa-instagram"></i>Instagram</a>
+        <a href="#"><i class="fab fa-youtube"></i>YouTube</a>
+        <a href="#"><i class="fab fa-twitch"></i>Twitch</a>
+        <a href="#"><i class="fab fa-discord"></i>Discord</a>
+      </div>
+    </footer>
+  </div>
 
-function getNextMessageIndex() {
-  var index = parseInt(localStorage.getItem("currentIndex"));
-  if (isNaN(index)) {
-    index = 0;
-  } else {
-    index = (index + 1) % messages.length;
-  }
-  localStorage.setItem("currentIndex", index);
-  return index;
-}
+  <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+    <div class="close-btn" onclick="closeOverlay()">&times;</div>
+    <div class="overlay-content" id="overlayContent"></div>
+  </div>
 
-function displayMessage() {
-  var index = getNextMessageIndex();
-  document.getElementById("message").textContent = messages[index];
-}
+  <div class="fullscreen-image" id="fullscreenImage" onclick="this.style.display='none'">
+    <img id="fullscreenImg" src="" alt="">
+  </div>
 
-window.onload = displayMessage;
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
