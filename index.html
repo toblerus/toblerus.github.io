@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Einfach Tobi's page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="There may be something here at some point. ">
+<style>
+body {background-color:#ffffff;background-repeat:no-repeat;background-position:top left;background-attachment:fixed;}
+h1{font-family:Arial, sans-serif;color:#000000;background-color:#ffffff;}
+p {font-family:Georgia, serif;font-size:14px;font-style:normal;font-weight:normal;color:#000000;background-color:#ffffff;}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<p class="centered" id="message"></p>
+
+<script>
+var messages = [
+  "There is nothing here (yet).",
+  "Something interesting might appear here.",
+  "Stay tuned for updates.",
+  "Who knows what the future holds?",
+  "Refresh again to see more.",
+  "Hey James!"
+];
+
+function getNextMessageIndex() {
+  var index = parseInt(localStorage.getItem("currentIndex"));
+  if (isNaN(index)) {
+    index = 0;
+  } else {
+    index = (index + 1) % messages.length;
+  }
+  localStorage.setItem("currentIndex", index);
+  return index;
+}
+
+function displayMessage() {
+  var index = getNextMessageIndex();
+  document.getElementById("message").textContent = messages[index];
+}
+
+window.onload = displayMessage;
+</script>
+
+</body>
+</html>
