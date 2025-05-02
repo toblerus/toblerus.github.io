@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const gameFolders = [
-    'Assets/ClumsyMechanic',
-    'Assets/AnotherGame'
+    'Assets/ClumsyMechanic'
   ];
 
   const grid = document.getElementById('gameGrid');
