@@ -1,0 +1,6 @@
+﻿{
+  "title": "Tile Swap",
+  "description": "<p>This is my second mobile game, created for the Play Store. The focus was to deliver a more polished experience by designing the entire game from start to finish and creating a complete product ready for publication. It is a simple puzzle game in which you click tiles to flip them and their direct neighbors. The goal was to turn the entire board into one color.</p><div class='list-container'><ul><li>Programming</li><li>Game design</li><li>Sound design</li></ul><ul><li><strong>Year:</strong> 2019</li><li><strong>Platform:</strong> Android</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png"],
+  "link": ""
+}
