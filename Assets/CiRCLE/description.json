@@ -1,0 +1,6 @@
+﻿{
+  "title": "CiRCLE",
+  "description": "<p>In this game, you controlled a ball, maneuvering it through a ring that closed in on you. You earned points and aimed for the high score.\n CiRCLE was my first game to make it into the Google Play Store. It is no longer available today. I created this game entirely by myself to test the waters of publishing games in stores accessible to everyone. The game also featured a functioning scoreboard that synchronized and displayed everyone's scores.</p><div class='list-container'><ul><li>Game design and programming</li><li>Store release process</li><li>Online scoreboard implementation</li></ul><ul><li><strong>Year:</strong> 2018</li><li><strong>Platform:</strong> Android</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
+  "link": ""
+}
