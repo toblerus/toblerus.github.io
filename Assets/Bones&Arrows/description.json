@@ -1,0 +1,6 @@
+﻿{
+  "title": "Bones & Arrows",
+  "description": "<p>This was my very first game jam I took part in, and likewise the first game I contributed code to that also got finished. It is a tower defense game in which you defend yourself against a growing army of skeletons while upgrading your defenses after a predefined round time. I mainly worked on:</p><div class='list-container'><ul><li>Creating UI and stat visuals</li><li>Handling different scenes</li></ul><ul><li><strong>Year:</strong> 2018</li><li><strong>Platform:</strong> Windows</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png"],
+  "link": "https://github.com/toblerus/ZombieTurret"
+}

@@ -1,6 +1,6 @@
 ﻿{
   "title": "Clumsy Mechanic",
-  "description": "<p>This game was created as part of the Global Game Jam 2020 in cooperation with some colleagues. It is a couch-coop style multiplayer game about fixing as many cars as possible within a certain time frame.</p><div class='list-container'><ul><li>Adding the player controls</li><li>Taking care of the general gameflow, regarding the rounds</li></ul><ul><li><strong>Year:</strong> 2020</li><li><strong>Platform:</strong> Windows</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "description": "<p>This game was created as part of the Global Game Jam 2020 in cooperation with some colleagues. It is a couch-coop style multiplayer game about fixing as many cars as possible within a certain time frame. A big part of my contributions here was:</p><div class='list-container'><ul><li>Adding the player controls</li><li>Taking care of the general gameflow, regarding the rounds</li></ul><ul><li><strong>Year:</strong> 2020</li><li><strong>Platform:</strong> Windows</li><li><strong>Engine:</strong> Unity</li></ul></div>",
   "images": ["img1.png", "img2.png"],
   "link": "https://rubo.itch.io/clumsy-mechanics"
 }
