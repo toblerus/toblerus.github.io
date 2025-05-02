@@ -1,5 +1,7 @@
-const gameFolders = ['Assets/ClumsyMechanic']; // Add more folder paths here
+const gameFolders = ['Assets/ClumsyMechanic'];
 let games = [];
+
+const grid = document.getElementById('gameGrid');
 
 Promise.all(
     gameFolders.map(folder =>
@@ -16,7 +18,26 @@ Promise.all(
     )
 ).then(results => {
   games = results.filter(g => g !== null);
+  renderGameGrid();
 });
+
+function renderGameGrid() {
+  games.forEach((game, index) => {
+    const div = document.createElement('div');
+    div.className = 'tile';
+    div.onclick = () => openOverlay(index);
+
+    const thumbPath = `${game.folder}/thumb.png`;
+
+    div.innerHTML = `
+      <img src="${thumbPath}" alt="${game.title || 'Game'}">
+      <div class="tile-title">${game.title || 'Untitled'}</div>
+    `;
+
+    grid.appendChild(div);
+  });
+}
+
 
 function openOverlay(index) {
   const game = games[index];
