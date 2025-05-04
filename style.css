@@ -210,6 +210,9 @@ p.description {
 .fullscreen-image img {
   max-width: 90vw;
   max-height: 90vh;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
 }
 
 .fullscreen-image:target {

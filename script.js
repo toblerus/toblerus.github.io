@@ -170,3 +170,9 @@ document.addEventListener('keydown', (e) => {
     fullscreen.style.display = 'none';
   }
 });
+
+document.getElementById('fullscreenImage').addEventListener('click', (e) => {
+  if (e.target.id === 'fullscreenImage') {
+    e.currentTarget.style.display = 'none';
+  }
+});
