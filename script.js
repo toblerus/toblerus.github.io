@@ -1,3 +1,4 @@
+let games = [];
 let currentFullscreenGameIndex = null;
 let currentFullscreenImageIndex = null;
 
@@ -11,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const grid = document.getElementById('gameGrid');
-  let games = [];
 
   Promise.all(
       gameFolders.map(folder =>
