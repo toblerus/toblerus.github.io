@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.openOverlay = function(index) {
+    document.body.classList.add('modal-open');
     const game = games[index];
     const overlay = document.getElementById('overlay');
     const content = document.getElementById('overlayContent');
@@ -96,6 +97,7 @@ function openOverlay(index) {
 }
 
 function closeOverlay() {
+  document.body.classList.remove('modal-open');
   document.getElementById('overlay').style.display = 'none';
 }
 
