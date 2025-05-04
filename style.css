@@ -134,7 +134,7 @@ p.description {
 
 .overlay-content > .scrollable-content {
   overflow-y: auto;
-  padding: 20px;
+  padding: 60px 20px 20px 20px;
 }
 
 .overlay-content h2 {
@@ -223,13 +223,13 @@ p.description {
 }
 
 .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 30px;
+  position: fixed;
+  top: 16px;
+  right: 24px;
   font-size: 2rem;
   color: white;
   cursor: pointer;
-  z-index: 1002;
+  z-index: 2001;
 }
 
 footer {
