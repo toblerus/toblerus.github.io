@@ -123,7 +123,7 @@ p.description {
   border-radius: 16px;
   max-width: 800px;
   width: 90%;
-  max-height: 90vh;
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
   padding: 20px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
@@ -133,6 +133,7 @@ p.description {
   opacity: 0;
   animation: zoomIn 0.25s ease forwards;
 }
+
 
 .overlay-content h2 {
   margin-bottom: 10px;
