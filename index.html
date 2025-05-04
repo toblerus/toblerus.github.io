@@ -34,8 +34,10 @@
     <div class="overlay-content" id="overlayContent"></div>
   </div>
 
-  <div class="fullscreen-image" id="fullscreenImage" onclick="this.style.display='none'">
+  <div class="fullscreen-image" id="fullscreenImage">
+    <div class="arrow left-arrow" onclick="navigateFullscreen(-1)"><i class="fas fa-chevron-left"></i></div>
     <img id="fullscreenImg" src="" alt="">
+    <div class="arrow right-arrow" onclick="navigateFullscreen(1)"><i class="fas fa-chevron-right"></i></div>
   </div>
 
   <script src="script.js"></script>

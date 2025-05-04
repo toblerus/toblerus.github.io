@@ -1,3 +1,6 @@
+let currentFullscreenGameIndex = null;
+let currentFullscreenImageIndex = null;
+
 document.addEventListener('DOMContentLoaded', () => {
   const gameFolders = [
     'Assets/Jack',
@@ -113,8 +116,30 @@ function toggleTheme() {
 function openFullscreen(src) {
   const fullscreen = document.getElementById('fullscreenImage');
   const img = document.getElementById('fullscreenImg');
-  img.src = src;
   fullscreen.style.display = 'flex';
+  img.src = src;
+
+  for (let i = 0; i < games.length; i++) {
+    const game = games[i];
+    const index = game.images?.findIndex(imgPath => `${game.folder}/${imgPath}` === src);
+    if (index !== -1) {
+      currentFullscreenGameIndex = i;
+      currentFullscreenImageIndex = index;
+      break;
+    }
+  }
+}
+
+function navigateFullscreen(direction) {
+  const game = games[currentFullscreenGameIndex];
+  if (!game || !Array.isArray(game.images)) return;
+
+  currentFullscreenImageIndex += direction;
+  if (currentFullscreenImageIndex < 0) currentFullscreenImageIndex = game.images.length - 1;
+  if (currentFullscreenImageIndex >= game.images.length) currentFullscreenImageIndex = 0;
+
+  const newSrc = `${game.folder}/${game.images[currentFullscreenImageIndex]}`;
+  document.getElementById('fullscreenImg').src = newSrc;
 }
 
 function applyStoredTheme() {
@@ -132,3 +157,16 @@ window.toggleTheme = toggleTheme;
 window.handleOverlayClick = handleOverlayClick;
 window.openFullscreen = openFullscreen;
 window.applyStoredTheme = applyStoredTheme;
+
+document.addEventListener('keydown', (e) => {
+  const fullscreen = document.getElementById('fullscreenImage');
+  if (fullscreen.style.display !== 'flex') return;
+
+  if (e.key === 'ArrowLeft') {
+    navigateFullscreen(-1);
+  } else if (e.key === 'ArrowRight') {
+    navigateFullscreen(1);
+  } else if (e.key === 'Escape') {
+    fullscreen.style.display = 'none';
+  }
+});
