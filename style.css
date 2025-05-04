@@ -222,12 +222,12 @@ p.description {
 
 .close-btn {
   position: absolute;
-  top: 20px;
-  right: 30px;
+  top: 16px;
+  right: 24px;
   font-size: 2rem;
   color: white;
   cursor: pointer;
-  z-index: 1002;
+  z-index: 2001;
 }
 
 footer {
