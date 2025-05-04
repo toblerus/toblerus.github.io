@@ -172,7 +172,8 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.getElementById('fullscreenImage').addEventListener('click', (e) => {
-  if (e.target.id === 'fullscreenImage') {
+  if (e.target === e.currentTarget) {
     e.currentTarget.style.display = 'none';
   }
 });
+
