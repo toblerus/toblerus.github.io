@@ -110,44 +110,31 @@ p.description {
 
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
+  inset: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
   background: rgba(0, 0, 0, 0.6);
-  display: none;
-  align-items: center;
-  justify-content: center;
   z-index: 999;
-  padding: 20px;
+  padding: 16px;
   box-sizing: border-box;
 }
 
 .overlay-content {
-  background: var(--tile-bg);
-  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 800px;
   max-height: 100%;
+  background: var(--tile-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content > .scrollable-content {
   overflow-y: auto;
   padding: 20px;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1001;
 }
 
 .overlay-content h2 {
