@@ -125,7 +125,8 @@ p.description {
   flex-direction: column;
   width: 100%;
   max-width: 800px;
-  max-height: 100%;
+  max-height: calc(100% - 60px);
+  margin-top: 60px;
   background: var(--tile-bg);
   border-radius: 16px;
   overflow: hidden;
@@ -134,8 +135,9 @@ p.description {
 
 .overlay-content > .scrollable-content {
   overflow-y: auto;
-  padding: 60px 20px 20px 20px;
+  padding: 20px;
 }
+
 
 .overlay-content h2 {
   margin-bottom: 10px;

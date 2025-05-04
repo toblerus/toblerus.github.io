@@ -76,14 +76,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-function openOverlay(index) {
+window.openOverlay = function (index) {
+    document.body.classList.add('modal-open');
     const game = games[index];
     const overlay = document.getElementById('overlay');
     const content = document.getElementById('overlayContent');
 
     const title = game.title || 'Untitled';
     const description = game.description ? `<div class="overlay-description">${game.description}</div>` : '';
-    const images = Array.isArray(game.images) ? game.images.map(img => `<img src="${game.folder}/${img}" alt="" onclick="openFullscreen('${game.folder}/${img}')">`).join('') : '';
+    const images = Array.isArray(game.images)
+        ? game.images.map(img => `<img src="${game.folder}/${img}" alt="" onclick="openFullscreen('${game.folder}/${img}')">`).join('')
+        : '';
     const imageBlock = images ? `<div class="images">${images}</div>` : '';
     const linkBlock = game.link ? `<div class="overlay-button"><a href="${game.link}" target="_blank">Take a look</a></div>` : '';
 
@@ -95,7 +98,8 @@ function openOverlay(index) {
   `;
 
     overlay.style.display = 'flex';
-}
+};
+
 
 function closeOverlay() {
     document.body.classList.remove('modal-open');
