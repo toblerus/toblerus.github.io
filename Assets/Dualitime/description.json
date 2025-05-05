@@ -1,6 +1,6 @@
 ﻿{
   "title": "Dualitime",
-  "description": "<p>As part of the Game Jam 2022, a friend and I created Dualitime. The theme was duality, and from that we designed a puzzle game where you maneuver your character through a room and reverse time to create a copy of yourself. This clone can then assist in solving puzzles by flicking levers, pushing buttons, and helping navigate the environment. In addition to programming, I also contributed all 3D assets used in the game.</p><div class='list-container'><ul><li>Conception</li><li>Programming</li><li>3D Modelling</li></ul><ul><li><strong>Year:</strong> 2022</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "description": "<p>As part of the Global Game Jam 2022, a friend and I created Dualitime. The theme was duality, and from that we designed a puzzle game where you maneuver your character through a room and reverse time to create a copy of yourself. This clone can then assist in solving puzzles by flicking levers, pushing buttons, and helping navigate the environment. In addition to programming, I also contributed all 3D assets used in the game.</p><div class='list-container'><ul><li>Conception</li><li>Programming</li><li>3D Modelling</li></ul><ul><li><strong>Year:</strong> 2022</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
   "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png", "img9.png"],
   "link": "https://v3.globalgamejam.org/2022/games/dualitime-6"
 }
