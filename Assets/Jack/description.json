@@ -1,6 +1,6 @@
 ﻿{
   "title": "Jack",
-  "description": "<p>Jack was created as a submission to Scream Roulette 2025. I worked on it alone, and the game was completed within a rough time frame of 12 hours. Since I'm very interested in the horror games scene and always have been, I decided to take a shot at it by creating this small blackjack game based on mechanics from Balatro and Buckshot Roulette.</p><div class='list-container'><ul><li>Game design and programming</li><li>Dealer art</li><li>Scene composition</li><li>Jumpscare animation</li></ul><ul><li><strong>Year:</strong> 2025</li><li><strong>Platform:</strong> Windows</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "description": "<p>Jack was created as a submission to Scream Roulette 2025. I worked on it alone, and the game was completed within a rough time frame of 12 hours. Since I'm very interested in the horror games scene and always have been, I decided to take a shot at it by creating this small blackjack game based on mechanics from Balatro and Buckshot Roulette.</p><div class='list-container'><ul><li>Game design and programming</li><li>Dealer art</li><li>Scene composition</li><li>Jumpscare animation</li></ul><ul><li><strong>Year:</strong> 2025</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
   "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
   "link": "https://einfach-tobi.itch.io/jack"
 }
