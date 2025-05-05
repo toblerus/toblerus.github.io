@@ -91,6 +91,7 @@ p.description {
   cursor: pointer;
   transition: transform 0.2s ease;  
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .tile:hover {
@@ -121,7 +122,6 @@ p.description {
   box-sizing: border-box;
 }
 
-
 .overlay-content {
   display: flex;
   flex-direction: column;
@@ -133,6 +133,9 @@ p.description {
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: scale(0.95);
+  opacity: 0;
+  animation: zoomIn 0.25s ease forwards;
 }
 
 .overlay-content > .scrollable-content {
@@ -184,6 +187,7 @@ p.description {
   overflow-x: auto;
   flex-wrap: nowrap;
   user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .overlay-content .images img {
