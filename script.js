@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameFolders = [
         'Assets/Jack',
         'Assets/BooloneyBandits',
+        'Assets/DoYouRemember',
+        'Assets/Clanzy',
         'Assets/BadToTheRoots',
         'Assets/ClumsyMechanic',
         'Assets/TileSwap',
+        'Assets/AmazingUFOGame',
         'Assets/CiRCLE',
         'Assets/Bones&Arrows'
     ];

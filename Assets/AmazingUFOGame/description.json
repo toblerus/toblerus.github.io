@@ -1,0 +1,6 @@
+﻿{
+  "title": "Amazing UFO Game",
+  "description": "<p>This game was created for a company internal game jam with the theme “Aliens.” I was responsible for implementing the player controls, adding full controller support, and integrating haptic feedback for a more immersive experience.</p><div class='list-container'><ul><li>Controller support</li><li>Haptic feedback</li><li>Player controls</li></ul><ul><li><strong>Year:</strong> 2019</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
+  "link": ""
+}

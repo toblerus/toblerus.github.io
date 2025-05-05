@@ -1,0 +1,6 @@
+﻿{
+  "title": "Clanzy (Discord Bot)",
+  "description": "<p>Not a game, but still very worthy of a mention. In 2023, I began work on this large-scale solo project: a Discord bot that is still actively running today. Clanzy allows members of my server to create private clan channels for their games. It features a range of systems—from promoting members to higher ranks within a clan, to automatically assigning elder roles if the original owner leaves. The bot includes a language filter for channel names, invite messages with interactive join buttons, and many smaller supporting features. It's built for small groups of players who regularly game together, helping them organize and share information easily. I developed it using DSharpPlus (D#+), an unofficial .NET wrapper for the Discord API.</p><div class='list-container'><ul><li>Major contact with async code</li><li>Conception</li><li>Implementation</li><li>Design</li></ul><ul><li><strong>Year:</strong> 2023</li><li><strong>Platform:</strong> Discord</li><li><strong>Language:</strong> C# (D#+)</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png"],
+  "link": ""
+}
