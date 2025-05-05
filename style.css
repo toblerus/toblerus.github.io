@@ -109,9 +109,9 @@ p.description {
 }
 
 .overlay {
+  display: none;
   position: fixed;
   inset: 0;
-  display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.6);
@@ -119,6 +119,7 @@ p.description {
   padding: 16px;
   box-sizing: border-box;
 }
+
 
 .overlay-content {
   display: flex;
