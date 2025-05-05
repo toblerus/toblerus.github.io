@@ -1,6 +1,6 @@
 ﻿{
   "title": "Boo-loney Bandits",
-  "description": "<p>This was my first attempt at online multiplayer. I joined the SCREAM JAM 2024 with a few friends, and we created this Halloween-themed game where you walk around with others and try to collect as much candy as possible. You knock on doors and either receive candy or get jumpscared and drop your stash. We had to trim our feature list to fit the jam's time constraints. My main contributions were:</p><div class='list-container'><ul><li>Developed responsive player controls</li><li>Implemented online multiplayer using Photon Fusion 2</li></ul><ul><li><strong>Year:</strong> 2024</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "description": "<p>This was my first attempt at online multiplayer. I joined the SCREAM JAM 2024 with a few friends, and we created this Halloween-themed game where you walk around with others and try to collect as much candy as possible. You knock on doors and either get candy or get jumped and drop it. We had to shorten our list of ideas to fit the jam's timeframe—otherwise, there would have been many more features. My main contributions were:</p><div class='list-container'><ul><li>Player controls</li><li>Online multiplayer (Photon Fusion 2)</li></ul><ul><li><strong>Year:</strong> 2024</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
   "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
   "link": "https://einfach-tobi.itch.io/boo-loney-bandits"
 }
