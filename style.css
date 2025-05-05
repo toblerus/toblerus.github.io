@@ -89,7 +89,8 @@ p.description {
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease;  
+  user-select: none;
 }
 
 .tile:hover {
