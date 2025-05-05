@@ -182,6 +182,7 @@ p.description {
   gap: 10px;
   overflow-x: auto;
   flex-wrap: nowrap;
+  user-select: none;
 }
 
 .overlay-content .images img {
