@@ -75,31 +75,42 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'flex';
     };
 
-    const overlay = document.getElementById('overlay');
+    const imagesContainers = document.querySelectorAll('.images');
 
-    overlay.addEventListener('mousedown', (e) => {
-        const imagesContainer = e.target.closest('.images');
-        if (!imagesContainer) return;
+    imagesContainers.forEach(container => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        let isDown = true;
-        const startX = e.pageX - imagesContainer.offsetLeft;
-        const scrollLeft = imagesContainer.scrollLeft;
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            container.classList.add('dragging');
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            e.preventDefault();
+        });
 
-        const onMouseMove = (moveEvent) => {
-            if (!isDown) return;
-            const x = moveEvent.pageX - imagesContainer.offsetLeft;
-            const walk = x - startX;
-            imagesContainer.scrollLeft = scrollLeft - walk;
-        };
-
-        const onMouseUp = () => {
+        container.addEventListener('mouseleave', () => {
             isDown = false;
-            document.removeEventListener('mousemove', onMouseMove);
-            document.removeEventListener('mouseup', onMouseUp);
-        };
+            container.classList.remove('dragging');
+        });
 
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', onMouseUp);
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.classList.remove('dragging');
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX);
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Prevent image dragging
+        container.querySelectorAll('img').forEach(img => {
+            img.setAttribute('draggable', 'false');
+        });
     });
 });
 
