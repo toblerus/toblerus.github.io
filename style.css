@@ -356,3 +356,9 @@ footer a {
   pointer-events: none;
 }
 
+img {
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+}
