@@ -139,6 +139,19 @@ p.description {
   padding: 20px;
 }
 
+.overlay-content .images::-webkit-scrollbar {
+  height: 8px;
+}
+
+.overlay-content .images::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 4px;
+}
+
+.overlay-content .images::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 4px;
+}
 
 .overlay-content h2 {
   margin-bottom: 10px;
