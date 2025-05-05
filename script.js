@@ -75,42 +75,31 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay.style.display = 'flex';
     };
 
-    const imagesContainers = document.querySelectorAll('.images');
+    const overlay = document.getElementById('overlay');
 
-    imagesContainers.forEach(container => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
+    overlay.addEventListener('mousedown', (e) => {
+        const imagesContainer = e.target.closest('.images');
+        if (!imagesContainer) return;
 
-        container.addEventListener('mousedown', (e) => {
-            isDown = true;
-            container.classList.add('dragging');
-            startX = e.pageX - container.offsetLeft;
-            scrollLeft = container.scrollLeft;
-            e.preventDefault();
-        });
+        let isDown = true;
+        const startX = e.pageX - imagesContainer.offsetLeft;
+        const scrollLeft = imagesContainer.scrollLeft;
 
-        container.addEventListener('mouseleave', () => {
-            isDown = false;
-            container.classList.remove('dragging');
-        });
-
-        container.addEventListener('mouseup', () => {
-            isDown = false;
-            container.classList.remove('dragging');
-        });
-
-        container.addEventListener('mousemove', (e) => {
+        const onMouseMove = (moveEvent) => {
             if (!isDown) return;
-            const x = e.pageX - container.offsetLeft;
-            const walk = (x - startX);
-            container.scrollLeft = scrollLeft - walk;
-        });
+            const x = moveEvent.pageX - imagesContainer.offsetLeft;
+            const walk = x - startX;
+            imagesContainer.scrollLeft = scrollLeft - walk;
+        };
 
-        // Prevent image dragging
-        container.querySelectorAll('img').forEach(img => {
-            img.setAttribute('draggable', 'false');
-        });
+        const onMouseUp = () => {
+            isDown = false;
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        };
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
     });
 });
 

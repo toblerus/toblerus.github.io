@@ -182,12 +182,6 @@ p.description {
   gap: 10px;
   overflow-x: auto;
   flex-wrap: nowrap;
-  cursor: grab;
-  user-select: none;
-}
-
-.overlay-content .images.dragging {
-  cursor: grabbing;
 }
 
 .overlay-content .images img {
