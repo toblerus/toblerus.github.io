@@ -1,0 +1,6 @@
+﻿{
+  "title": "Bad to the roots",
+  "description": "<p>This game was created as part of the Global Game Jam 2023. I took on the role of one of the two developers and worked on it together with a few colleagues. My main contributions included implementing the player controls, handling animations for the player character, and various smaller tasks such as projectile behavior.</p><div class='list-container'><ul><li>Player controls</li><li>Animation systems</li><li>Supporting mechanics/projectiles</li></ul><ul><li><strong>Year:</strong> 2023</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
+  "link": "https://nezamizero.itch.io/bad-to-the-roots"
+}

@@ -5,6 +5,7 @@ let currentFullscreenImageIndex = null;
 document.addEventListener('DOMContentLoaded', () => {
     const gameFolders = [
         'Assets/Jack',
+        'Assets/BadToTheRoots',
         'Assets/ClumsyMechanic',
         'Assets/TileSwap',
         'Assets/CiRCLE',
