@@ -74,6 +74,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
         overlay.style.display = 'flex';
     };
+
+    const overlay = document.getElementById('overlay');
+
+    overlay.addEventListener('mousedown', (e) => {
+        const imagesContainer = e.target.closest('.images');
+        if (!imagesContainer) return;
+
+        let isDown = true;
+        const startX = e.pageX - imagesContainer.offsetLeft;
+        const scrollLeft = imagesContainer.scrollLeft;
+
+        const onMouseMove = (moveEvent) => {
+            if (!isDown) return;
+            const x = moveEvent.pageX - imagesContainer.offsetLeft;
+            const walk = x - startX;
+            imagesContainer.scrollLeft = scrollLeft - walk;
+        };
+
+        const onMouseUp = () => {
+            isDown = false;
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        };
+
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+    });
 });
 
 
