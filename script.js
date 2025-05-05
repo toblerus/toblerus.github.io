@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         games = results.filter(g => g !== null);
 
         games.forEach(game => {
+            const thumb = new Image();
+            thumb.src = `${game.folder}/thumb.png`;
+
             if (Array.isArray(game.images)) {
                 game.images.forEach(img => {
                     const fullPath = `${game.folder}/${img}`;
@@ -44,7 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-        
+
+
         renderGameGrid(games, grid);
     });
 
