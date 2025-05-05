@@ -1,6 +1,6 @@
 ﻿{
   "title": "Do You Remember?",
-  "description": "<p>As a big horror game enthusiast—especially of those styled after VHS tapes or the PlayStation 2 era—I wanted to make an attempt at creating one myself. I worked alone on this project and set a strict timeline of one week from start to finish. In this game, you follow a path of decisions that lead to different endings, each with its own distinct outcome and effects.</p><div class='list-container'><ul><li>Concept, design, and full development</li><li>Multiple endings with branching outcomes</li><li>Classic retro visuals/sounds</li></ul><ul><li><strong>Year:</strong> 2023</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "description": "<p>As a big horror game enthusiast - especially of those styled after VHS tapes or the PlayStation 2 era - I wanted to make an attempt at creating one myself. I worked alone on this project and set a strict timeline of one week from start to finish. In this game, you follow a path of decisions that lead to different endings, each with its own distinct outcome and effects.</p><div class='list-container'><ul><li>Concept, design, and full development</li><li>Multiple endings with branching outcomes</li><li>Classic retro visuals/sounds</li></ul><ul><li><strong>Year:</strong> 2023</li><li><strong>Platform:</strong> PC</li><li><strong>Engine:</strong> Unity</li></ul></div>",
   "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
   "link": "https://lumingames.itch.io/do-you-remember"
 }

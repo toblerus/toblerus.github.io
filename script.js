@@ -34,6 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
         )
     ).then(results => {
         games = results.filter(g => g !== null);
+
+        games.forEach(game => {
+            if (Array.isArray(game.images)) {
+                game.images.forEach(img => {
+                    const fullPath = `${game.folder}/${img}`;
+                    const preloadImg = new Image();
+                    preloadImg.src = fullPath;
+                });
+            }
+        });
+        
         renderGameGrid(games, grid);
     });
 
