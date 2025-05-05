@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Assets/DoYouRemember',
         'Assets/Clanzy',
         'Assets/BadToTheRoots',
+        'Assets/Dualitime',
         'Assets/ClumsyMechanic',
         'Assets/TileSwap',
         'Assets/AmazingUFOGame',
