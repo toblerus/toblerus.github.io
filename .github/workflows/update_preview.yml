@@ -3,7 +3,7 @@ name: Update Web Preview
 on:
   push:
     branches:
-      - master  # or main, depending on your default branch
+      - master
 
 jobs:
   update-preview:
