@@ -1,0 +1,44 @@
+name: Update Web Preview
+
+on:
+  push:
+    branches:
+      - master  # or main, depending on your default branch
+
+jobs:
+  update-preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Take screenshot
+        run: |
+          node <<EOF
+          const puppeteer = require('puppeteer');
+          (async () => {
+            const browser = await puppeteer.launch();
+            const page = await browser.newPage();
+            await page.goto('https://toblerus.github.io', { waitUntil: 'networkidle0' });
+            await page.setViewport({ width: 1200, height: 630 });
+            await page.screenshot({ path: 'web_preview.png' });
+            await browser.close();
+          })();
+          EOF
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add web_preview.png
+          git commit -m "Update web preview image" || echo "No changes to commit"
+          git push
