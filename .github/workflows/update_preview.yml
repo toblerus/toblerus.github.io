@@ -26,7 +26,7 @@ jobs:
           node <<EOF
           const puppeteer = require('puppeteer');
           (async () => {
-            const browser = await puppeteer.launch();
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
             const page = await browser.newPage();
             await page.goto('https://toblerus.github.io', { waitUntil: 'networkidle0' });
             await page.setViewport({ width: 1200, height: 630 });
@@ -34,6 +34,7 @@ jobs:
             await browser.close();
           })();
           EOF
+
 
       - name: Commit and push changes
         run: |
