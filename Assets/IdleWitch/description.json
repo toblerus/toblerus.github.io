@@ -1,0 +1,6 @@
+﻿{
+  "title": "Idle Witch",
+  "description": "<p>This game was created during the first Kolibri Games internal prototyping Game Jam, before my official transition into the role of a Unity Developer. As a result, my coding contributions were limited, but I actively supported the team through polish, game design, and testing. I used DoTween to enhance the game's visual feedback and transitions. Idle Witch was an auto battler that featured an ambitious set of ideas, including PvE and PvP modes, hero customization, and more.</p><div class='list-container'><ul><li>DoTween-based polish and animation</li><li>Game design support and iteration</li><li>Balancing and functionality testing</li></ul><ul><li><strong>Year:</strong> 2021</li><li><strong>Platform:</strong> Android</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png", "img9.png"],
+  "link": ""
+}

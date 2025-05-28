@@ -1,0 +1,6 @@
+﻿{
+  "title": "Golfling – Need for Seed",
+  "description": "<p>This game was created as part of a Kolibri Games internal Game Jam, called the New Games Summer Jam 2023. The goal was to explore new ideas, and my team and I developed this small but polished prototype. I contributed heavily to the conceptualization and was responsible for everything related to player controls and movement, including their visual representation. This also gave me extensive hands-on experience with Unity’s physics system.</p><div class='list-container'><ul><li>Gameplay concept development</li><li>Player control and movement systems</li><li>Physics-based interaction and visual feedback</li></ul><ul><li><strong>Year:</strong> 2023</li><li><strong>Platform:</strong> Android</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png"],
+  "link": ""
+}

@@ -1,0 +1,6 @@
+﻿{
+  "title": "Market Craze: Merge Defense",
+  "description": "<p>Market Craze was created during the Kolibri Game Jam 2022. The objective was to develop a small but highly polished prototype for a merge-style game. You play as a store owner, merging employees in an increasingly difficult tower defense-style setup to serve incoming customers with their requested items. While I didn’t contribute to the core gameplay this time, I take pride in the polish I brought to the experience. I animated objects using DoTween, added bounce effects when items hit walls, and handled all animations entirely through code to enhance visual feedback and responsiveness.</p><div class='list-container'><ul><li>Polish and visual feedback design</li><li>Code-based animation using DoTween</li><li>Physics-inspired interaction effects</li></ul><ul><li><strong>Year:</strong> 2022</li><li><strong>Platform:</strong> Android</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png"],
+  "link": ""
+}

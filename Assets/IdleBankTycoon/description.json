@@ -1,0 +1,6 @@
+﻿{
+  "title": "Idle Bank Tycoon",
+  "description": "<p>In my role as a Junior Unity Developer at Kolibri Games, this is the first major successful game I contributed to. Working on this project provided me with valuable insights into mobile game development and platform-specific challenges. I was involved with third-party SDKs, participated in technical planning, implemented features, and collaborated closely with colleagues to create polished, high-quality gameplay systems.</p><div class='list-container'><ul><li>Technical planning and system architecture</li><li>Implementation of core features</li><li>Integration of third-party SDKs</li></ul><ul><li><strong>Year:</strong> 2023–Current</li><li><strong>Platform:</strong> Android/iOS</li><li><strong>Engine:</strong> Unity</li></ul></div>",
+  "images": ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png"],
+  "link": "https://play.google.com/store/apps/details?id=com.luckyskeletonstudios.idlebanktycoon&hl=en"
+}

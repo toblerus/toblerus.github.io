@@ -4,12 +4,16 @@ let currentFullscreenImageIndex = null;
 
 document.addEventListener('DOMContentLoaded', () => {
     const gameFolders = [
+        'Assets/IdleBankTycoon',
         'Assets/Jack',
         'Assets/BooloneyBandits',
         'Assets/DoYouRemember',
         'Assets/Clanzy',
+        'Assets/Golfling',
         'Assets/BadToTheRoots',
+        'Assets/MarketCraze',
         'Assets/Dualitime',
+        'Assets/IdleWitch',
         'Assets/ClumsyMechanic',
         'Assets/TileSwap',
         'Assets/AmazingUFOGame',
