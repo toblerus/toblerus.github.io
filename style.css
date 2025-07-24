@@ -296,6 +296,20 @@ footer a {
   .overlay-content .images img {
     width: 140px;
   }
+  
+  .about-me {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-text {
+    max-width: 100%;
+  }
+
+  .profile-pic {
+    margin-bottom: 20px;
+  }
 }
 
 @keyframes zoomIn {
