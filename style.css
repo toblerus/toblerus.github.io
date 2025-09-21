@@ -437,3 +437,105 @@ img {
 .resume-button i {
     margin-right: 8px;
 }
+
+.breadcrumbs {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 0.95rem;
+  margin: 8px 0 24px 0;
+  color: var(--text-color);
+}
+.breadcrumbs a {
+  color: var(--text-color);
+  text-decoration: none;
+  opacity: 0.8;
+}
+.breadcrumbs span {
+  opacity: 0.5;
+}
+
+.carousel {
+  position: relative;
+  height: 360px;
+  margin-bottom: 32px;
+  touch-action: pan-y;
+  user-select: none;
+}
+.carousel .item {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 260px;
+  height: 320px;
+  transform-origin: center center;
+  transform: translateX(-50%);
+  transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease, z-index 0.5s ease;
+  will-change: transform, opacity, filter;
+}
+.carousel .item .tile {
+  height: 100%;
+}
+.carousel .item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.carousel .item .tile-title {
+  text-align: center;
+}
+
+.timeline-layout {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+}
+.timeline-rail {
+  position: sticky;
+  top: 16px;
+  height: calc(100vh - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.timeline-rail-current {
+  background: var(--tile-bg);
+  border-radius: 12px;
+  padding: 8px 12px;
+  text-align: center;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.timeline-rail ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  flex: 1;
+}
+.timeline-rail li {
+  padding: 6px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.timeline-rail li.active {
+  background: var(--tile-bg);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  font-weight: 600;
+}
+.timeline-section {
+  margin-bottom: 32px;
+}
+.timeline-section h2 {
+  margin: 0 0 12px 0;
+}
+.timeline-section .grid {
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .timeline-layout { grid-template-columns: 1fr; }
+  .timeline-rail { position: relative; height: auto; flex-direction: row; align-items: center; }
+  .timeline-rail ul { display: flex; flex-wrap: wrap; gap: 8px; max-height: none; }
+}

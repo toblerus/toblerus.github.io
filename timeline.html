@@ -3,24 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tobi's Portfolio</title>
+  <title>Tobi's Portfolio - Timeline</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css?v=1.2">
-
-  <meta property="og:url" content="https://tobiashainke.dev">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Tobias Hainke">
-  <meta property="og:description" content="Game developer focused on creating engaging experiences in Unity">
-  <meta property="og:image" content="https://raw.githubusercontent.com/toblerus/toblerus.github.io/master/web_preview.png">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="tobiashainke.dev">
-  <meta property="twitter:url" content="https://tobiashainke.dev">
-  <meta name="twitter:title" content="Tobias Hainke">
-  <meta name="twitter:description" content="Game developer focused on creating engaging experiences in Unity">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/toblerus/toblerus.github.io/master/web_preview.png">
-  
   <script src="theme-init.js"></script>
 </head>
 <body class="preload" onload="applyStoredTheme()">
@@ -33,23 +19,12 @@
 
     <nav class="breadcrumbs"><a href="index.html">Main</a><span>/</span><a href="timeline.html">Timeline</a></nav>
 
-    <div class="carousel" id="featuredCarousel"></div>
-    <div class="grid" id="gameGrid" style="display:none"></div>
-
-    <section class="about-me">
-      <img src="Assets/profile.png" alt="Tobias Hainke" class="profile-pic">
-      <div class="about-text">
-        <h2>About Me</h2>
-        <p>As both a gamer and developer, games have always been more than a career path. They're a lifelong passion. I constantly pursue programming and game design as creative outlets, always looking to sharpen my skills and explore new ideas.</p> 
-		<p>My long-term goal is to tell meaningful stories through my own games, bringing my ideas to life. I'm always eager to learn, whether it's new technologies, design approaches, or ways to improve and expand my abilities.</p> 
-		<p>If you're interested, I'd love to connect and show what I can do.</p>
-      </div>
-    </section>
-
-    <div class="resume-button" style="text-align: center;">
-      <a href="https://docs.google.com/document/d/1_Gq3JxBc6tavmmIJlvOOC0HoXbb4KIGmr2Lp2Fi19rA/export?format=pdf" download>
-        <i class="fas fa-download"></i> Download Resume
-      </a>
+    <div class="timeline-layout">
+      <aside class="timeline-rail">
+        <div class="timeline-rail-current" id="timelineCurrentYear">Year</div>
+        <ul id="timelineYearList"></ul>
+      </aside>
+      <main class="timeline-content" id="timelineContent"></main>
     </div>
 
     <footer>
@@ -66,13 +41,11 @@
     <div class="close-btn" onclick="closeOverlay()">&times;</div>
     <div class="overlay-content" id="overlayContent"></div>
   </div>
-  
   <div class="fullscreen-image" id="fullscreenImage">
     <div class="arrow left-arrow" onclick="navigateFullscreen(-1)"><i class="fas fa-chevron-left"></i></div>
     <img id="fullscreenImg" src="" alt="">
     <div class="arrow right-arrow" onclick="navigateFullscreen(1)"><i class="fas fa-chevron-right"></i></div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
