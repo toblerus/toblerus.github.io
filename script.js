@@ -2,24 +2,9 @@ let games = [];
 let currentFullscreenGameIndex = null;
 let currentFullscreenImageIndex = null;
 
-/* Theme safety: provide functions if theme-init.js did not */
-if (typeof window.applyStoredTheme !== 'function') {
-  window.applyStoredTheme = function() {
-    var t = localStorage.getItem('theme') || 'light';
-    if (t === 'dark') document.body.classList.add('dark-mode');
-    else document.body.classList.remove('dark-mode');
-  };
-}
-if (typeof window.toggleTheme !== 'function') {
-  window.toggleTheme = function() {
-    var isDark = document.body.classList.toggle('dark-mode');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  };
-}
-
 let featuredSelection = [
     'Assets/IdleBankTycoon',
-    'Assets/Golfling',
+	'Assets/Golfling',
     'Assets/MarketCraze',
     'Assets/BooloneyBandits',
     'Assets/Jack',
@@ -33,8 +18,7 @@ function isHomePage() {
     return location.pathname.endsWith('/') || location.pathname.endsWith('index.html');
 }
 
-/* Carousel smoothing and drag with pointer capture */
-let carouselState = { index: 0, target: 0, dragging: false, dragStartX: 0, dragDelta: 0, timer: null, items: [], raf: null };
+let carouselState = { index: 0, dragging: false, dragStartX: 0, dragDelta: 0, timer: null, items: [] };
 
 function setupCarousel() {
     const container = document.getElementById('featuredCarousel');
@@ -54,86 +38,69 @@ function setupCarousel() {
         wrapper.appendChild(div);
         container.appendChild(wrapper);
     });
-    positionCarousel(true);
-
-    container.addEventListener('pointerdown', e => {
-        carouselState.dragging = true;
-        carouselState.dragStartX = e.clientX;
-        carouselState.dragDelta = 0;
-        container.setPointerCapture(e.pointerId);
-        pauseCarousel();
-    });
-    container.addEventListener('pointermove', e => {
-        if (!carouselState.dragging) return;
-        carouselState.dragDelta = e.clientX - carouselState.dragStartX;
-        positionCarousel(false);
-    });
-    container.addEventListener('pointerup', e => {
-        if (!carouselState.dragging) return;
-        container.releasePointerCapture(e.pointerId);
-        const dx = e.clientX - carouselState.dragStartX;
-        carouselState.dragging = false;
-        carouselState.dragStartX = 0;
-        if (Math.abs(dx) > 80) stepCarousel(dx < 0 ? 1 : -1);
-        carouselState.dragDelta = 0;
-        resumeCarousel();
-    });
-
+    positionCarousel();
+    container.addEventListener('pointerdown', onCarouselPointerDown, {passive: true});
+    window.addEventListener('pointermove', onCarouselPointerMove, {passive: true});
+    window.addEventListener('pointerup', onCarouselPointerUp, {passive: true});
     container.addEventListener('mouseenter', pauseCarousel);
     container.addEventListener('mouseleave', resumeCarousel);
     resumeCarousel();
 }
 
-function positionCarousel(immediate) {
+function findGameIndex(folder) {
+    for (var i = 0; i < games.length; i++) if (games[i].folder === folder) return i;
+    return -1;
+}
+
+function positionCarousel() {
     const container = document.getElementById('featuredCarousel');
     if (!container) return;
-
-    if (carouselState.raf) cancelAnimationFrame(carouselState.raf);
-    const animate = () => {
-        const diff = carouselState.target - carouselState.index;
-        if (Math.abs(diff) > 0.001) {
-            carouselState.index = carouselState.index + diff * 0.12;
-            carouselState.raf = requestAnimationFrame(animate);
-        } else {
-            carouselState.index = carouselState.target;
-            carouselState.raf = null;
-        }
-
-        const N = carouselState.items.length;
-        for (var i = 0; i < N; i++) {
-            var rawPos = i - carouselState.index;
-            while (rawPos > N/2) rawPos -= N;
-            while (rawPos < -N/2) rawPos += N;
-
-            var x = rawPos * 360 + carouselState.dragDelta;
-            var scale = rawPos === 0 ? 1.0 : Math.max(0.7, 1.0 - Math.abs(rawPos) * 0.15);
-            var opacity = rawPos === 0 ? 1 : Math.max(0.25, 1.0 - Math.abs(rawPos) * 0.4);
-            var z = 10 - Math.abs(rawPos);
-
-            var el = container.children[i];
-            el.style.transform = `translateX(calc(-50% + ${x}px)) scale(${scale})`;
-            el.style.opacity = opacity;
-            el.style.zIndex = z;
-            el.style.filter = rawPos === 0 ? 'none' : 'saturate(0.9) blur(0.2px)';
-        }
-    };
-    if (immediate) {
-        carouselState.index = carouselState.target;
-        animate();
-    } else {
-        animate();
+    const N = carouselState.items.length;
+    for (var i = 0; i < N; i++) {
+        const rel = ((i - carouselState.index) + N) % N;
+        const pos = rel <= 2 ? rel : rel - N;
+        const el = container.children[i];
+        const offset = pos * 220;
+        const scale = pos === 0 ? 1.0 : pos === -1 || pos === 1 ? 0.8 : 0.6;
+        const opacity = pos === 0 ? 1 : pos === -1 || pos === 1 ? 0.65 : 0.3;
+        const rotate = pos * -6;
+        const z = pos === 0 ? 5 : pos === -1 || pos === 1 ? 4 : 3;
+        el.style.transform = `translateX(calc(-50% + ${offset + carouselState.dragDelta}px)) scale(${scale}) rotate(${rotate}deg)`;
+        el.style.opacity = opacity;
+        el.style.zIndex = z;
+        el.style.filter = pos === 0 ? 'none' : 'saturate(0.8) blur(0.2px)';
     }
 }
 
 function stepCarousel(dir) {
-    const N = carouselState.items.length;
-    carouselState.target = (Math.round(carouselState.target) + dir + N) % N;
-    positionCarousel(false);
+    carouselState.index = (carouselState.index + dir + carouselState.items.length) % carouselState.items.length;
+    positionCarousel();
 }
 
-function findGameIndex(folder) {
-    for (var i = 0; i < games.length; i++) if (games[i].folder === folder) return i;
-    return -1;
+function onCarouselPointerDown(e) {
+    carouselState.dragging = true;
+    carouselState.dragStartX = e.clientX;
+    carouselState.dragDelta = 0;
+    pauseCarousel();
+}
+
+function onCarouselPointerMove(e) {
+    if (!carouselState.dragging) return;
+    carouselState.dragDelta = e.clientX - carouselState.dragStartX;
+    positionCarousel();
+}
+
+function onCarouselPointerUp(e) {
+    if (!carouselState.dragging) return;
+    const dx = e.clientX - carouselState.dragStartX;
+    carouselState.dragging = false;
+    carouselState.dragStartX = 0;
+    if (Math.abs(dx) > 60) {
+        stepCarousel(dx < 0 ? 1 : -1);
+    }
+    carouselState.dragDelta = 0;
+    positionCarousel();
+    resumeCarousel();
 }
 
 function pauseCarousel() {
@@ -212,8 +179,6 @@ function buildTimeline() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    applyStoredTheme();
-
     const gameFolders = [
         'Assets/IdleBankTycoon',
         'Assets/Jack',
@@ -240,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     data.folder = folder;
                     return data;
                 })
-                .catch(() => {
+                .catch(err => {
                     return null;
                 })
         )
@@ -293,7 +258,7 @@ window.openOverlay = function (index) {
         ? game.images.map(img => `<img src="${game.folder}/${img}" alt="" onclick="openFullscreen('${game.folder}/${img}')">`).join('')
         : '';
     const imageBlock = images ? `<div class="images">${images}</div>` : '';
-    const linkBlock = game.link ? `<div class="overlay-button"><a href="${game.link}" target="_blank" rel="noopener">Take a look</a></div>` : '';
+    const linkBlock = game.link ? `<div class="overlay-button"><a href="${game.link}" target="_blank">Take a look</a></div>` : '';
 
     content.innerHTML = `
     <h2>${title}</h2>
